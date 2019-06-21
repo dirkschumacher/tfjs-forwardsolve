@@ -7,5 +7,5 @@ Currently experimental and for learning purposes. Use at own risk.
 const L = tfc.tensor2d([[1, 0, 0], [3, 4, 0], [3, 4, 5]])
 const b = tfc.tensor1d([20, 300, 40])
 const result = await forwardSolve(L, b)
-#> [ 20, 60, -52 ]
+// [ 20, 60, -52 ]
 ```

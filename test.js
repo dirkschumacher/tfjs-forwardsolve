@@ -19,3 +19,15 @@ test("solve example #1", async (t) => {
   arrayEqual(result, expected)
   t.end()
 })
+
+
+test("solve example #2", async (t) => {
+  const L = tfc.tensor2d([[1, 0, 0], [3, 4, 0], [3, 4, 5]])
+  const b = tfc.tensor1d([20, 300, 40])
+  const expected = tfc.tensor1d([20, 60, -52], "float32").arraySync()
+  await forwardSolve(L, b) // should not affect the result
+  const result = await forwardSolve(L, b)
+  const arrayEqual = makeArrayEqual(t)
+  arrayEqual(result.arraySync(), expected)
+  t.end()
+})

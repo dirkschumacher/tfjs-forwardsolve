@@ -1,6 +1,6 @@
 {
   "name": "tfjs-forwardsolve",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Forward solve in tensorflow JS",
   "main": "index.js",
   "scripts": {

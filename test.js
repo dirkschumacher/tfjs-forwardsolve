@@ -11,9 +11,9 @@ const makeArrayEqual = (t) => (a, b) => {
 }
 
 test("solve example #1", async (t) => {
-  const L = tfc.tensor2d([[1, 0, 0], [3, 4, 0], [3, 4, 5]])
+  const L = tfc.tensor2d([[5, 0, 0], [3, 4, 0], [3, 4, 5]])
   const b = tfc.tensor1d([20, 300, 40])
-  const expected = tfc.tensor1d([20, 60, -52], "float32").arraySync()
+  const expected = tfc.tensor1d([4, 72, -52], "float32").arraySync()
   const result = (await forwardSolve(L, b)).arraySync()
   const arrayEqual = makeArrayEqual(t)
   arrayEqual(result, expected)
@@ -22,9 +22,9 @@ test("solve example #1", async (t) => {
 
 
 test("solve example #2", async (t) => {
-  const L = tfc.tensor2d([[1, 0, 0], [3, 4, 0], [3, 4, 5]])
+  const L = tfc.tensor2d([[5, 0, 0], [3, 4, 0], [3, 4, 5]])
   const b = tfc.tensor1d([20, 300, 40])
-  const expected = tfc.tensor1d([20, 60, -52], "float32").arraySync()
+  const expected = tfc.tensor1d([4, 72, -52], "float32").arraySync()
   await forwardSolve(L, b) // should not affect the result
   const result = await forwardSolve(L, b)
   const arrayEqual = makeArrayEqual(t)

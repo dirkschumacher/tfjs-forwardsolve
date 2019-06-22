@@ -4,12 +4,13 @@ const tfc = require("@tensorflow/tfjs-core")
 
 const forwardSolve = async (L, b) => {
   const n = +b.shape[0]
-  const buffer = await b.buffer()
   const bufferOut = tfc.buffer([n], "float32")
+  const buffer = await b.buffer()
+  const Lbuffer = await L.buffer()
 
   // Just learning
   // Feel free to solve this without buffers
-  bufferOut.set(buffer.get(0), 0)
+  bufferOut.set(buffer.get(0) / Lbuffer.get(0), 0)
   for (let i = 1; i < n; i++) {
     const Ls = tfc.slice(tfc.gather(L, i), 0, i).reshape([1, i])
     const bs = bufferOut.toTensor().slice(0, i).reshape([i, 1])
